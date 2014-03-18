@@ -50,6 +50,8 @@ public class MainActivity extends Activity {
         		((FamilyApplication)this.getApplication()).setmAdapter(adapter);
         		
         		startActivity(intent);
+        		
+        		// command add
         	}
         });
         
