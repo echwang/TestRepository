@@ -4,13 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.example.echwang.R;
+import com.example.echwang.adddata.AddDataActivity;
 import com.example.echwang.detail.DetailActivity;
 
 public class MainActivity extends Activity {
@@ -47,7 +50,7 @@ public class MainActivity extends Activity {
         		
         		intent.putExtra("selectedIndex", position);
         		
-        		((FamilyApplication)this.getApplication()).setmAdapter(adapter);
+        		//((FamilyApplication)this.getApplication()).setmAdapter(adapter);
         		
         		startActivity(intent);
         		
@@ -63,7 +66,33 @@ public class MainActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        Log.i("echwang", "[MainActivity::onCreateOptionsMenu] 1");
         return true;
     }
+
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) { 
+		// TODO Auto-generated method stub
+		Log.i("echwang", "[MainActivity::onOptionsItemSelected] 1");
+		int curId = item.getItemId();
+		Log.i("echwang", "[MainActivity::onOptionsItemSelected] 2 curId=" + curId);
+		switch(curId){
+		case R.id.action_settings: nextActivity(); return true;
+		case R.id.action_add: nextActivity(); return true;
+		case R.id.action_edit: nextActivity(); return true;
+		default: return super.onOptionsItemSelected(item);
+		}
+		
+	}
+	
+	private void nextActivity(){
+		Log.i("echwang", "[MainActivity::nextActivity] 1");
+		Intent intent = new Intent(getApplicationContext(), AddDataActivity.class);        		   		
+		Log.i("echwang", "[MainActivity::nextActivity] 2");
+		startActivity(intent);
+		Log.i("echwang", "[MainActivity::nextActivity] 3");
+		return;
+	}
     
 }
