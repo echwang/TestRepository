@@ -46,7 +46,8 @@ public class MainActivity extends Activity {
         		
         		Toast.makeText(getApplicationContext(), "selected : " + curData[0], 2000).show();
         		
-        		Intent intent = new Intent(getBaseContext(), DetailActivity.class);        		   		
+        		Intent intent = new Intent(getBaseContext(), AddDataActivity.class);        		   		
+        		//Intent intent = new Intent(getBaseContext(), DetailActivity.class);  
         		
         		intent.putExtra("selectedIndex", position);
         		
